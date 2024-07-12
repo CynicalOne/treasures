@@ -1,0 +1,43 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+.photo-set {
+    margin-bottom: 20px;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.photo-slot {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    border: 2px solid #bbb;
+    transition: background-color 0.3s;
+}
+
+.photo-slot:hover {
+    background-color: #bbb;
+}
+
+#toggle-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
