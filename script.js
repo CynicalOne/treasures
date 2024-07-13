@@ -19,9 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to create a new set of photos
     function createPhotoSet() {
+        const newSet = document.createElement('div');
+        newSet.className = 'photo-set';
         photoUrls.forEach(url => {
-            photoSetContainer.appendChild(createPhotoSlot(url));
+            newSet.appendChild(createPhotoSlot(url));
         });
+        photoSetContainer.appendChild(newSet);
     }
 
     // Event listener for photo uploads
@@ -34,13 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
         photoUrls = Array.from(files).map(file => URL.createObjectURL(file));
         createPhotoSet();
         uploadForm.style.display = 'none';
+        addSetButton.style.display = 'block';
     });
 
     // Event listener for adding new photo sets
     addSetButton.addEventListener('click', () => {
+        if (photoUrls.length !== 13) {
+            alert('Please upload exactly 13 photos before adding new sets.');
+            return;
+        }
         createPhotoSet();
     });
 
-    // Initially trigger the file upload form (you can handle this differently if needed)
+    // Initially display the file upload form
     uploadForm.style.display = 'block';
 });
