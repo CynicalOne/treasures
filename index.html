@@ -8,45 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="photo-set" id="set1">
-            <h2 id="set1-name">Set 1</h2>
-            <div class="photos">
-                <!-- 13 photo slots for set 1 -->
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-            </div>
+        <h2 id="gallery-name">Photo Gallery</h2>
+        <div class="photo-set" id="photo-set">
+            <!-- 13 photo slots will be inserted here by JavaScript -->
         </div>
-        <div class="photo-set" id="set2" style="display: none;">
-            <h2 id="set2-name">Set 2</h2>
-            <div class="photos">
-                <!-- 13 photo slots for set 2 -->
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-                <div class="photo-slot"></div>
-            </div>
-        </div>
-        <button id="toggle-button">Toggle Photo Sets</button>
+        <button id="add-set-button">Add New Set</button>
+        <form id="upload-form" style="display:none;">
+            <input type="file" id="photo-upload" accept="image/*" multiple>
+            <button type="button" id="upload-button">Upload Photos</button>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>
