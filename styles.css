@@ -15,8 +15,22 @@ body {
     text-align: center;
 }
 
+#sets-container {
+    width: 80%;
+}
+
 .photo-set {
     margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.photo-set h3 {
+    margin: 10px 0;
+}
+
+.photos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -28,13 +42,18 @@ body {
     height: 100px;
     background-color: #ddd;
     border: 2px solid #bbb;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, filter 0.3s;
+    cursor: pointer;
 }
 
 .photo-slot img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.photo-slot.gray-out {
+    filter: grayscale(100%);
 }
 
 #add-set-button, #upload-button {

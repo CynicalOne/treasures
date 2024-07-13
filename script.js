@@ -1,7 +1,7 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const photoSetContainer = document.getElementById('photo-set');
+    const setsContainer = document.getElementById('sets-container');
     const addSetButton = document.getElementById('add-set-button');
     const photoUploadInput = document.getElementById('photo-upload');
     const uploadForm = document.getElementById('upload-form');
@@ -14,6 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = document.createElement('img');
         img.src = url;
         slot.appendChild(img);
+
+        // Add event listener to gray out photo on click
+        slot.addEventListener('click', () => {
+            slot.classList.toggle('gray-out');
+        });
+
         return slot;
     }
 
@@ -21,10 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function createPhotoSet() {
         const newSet = document.createElement('div');
         newSet.className = 'photo-set';
+
+        // Create input for set name
+        const setNameInput = document.createElement('input');
+        setNameInput.type = 'text';
+        setNameInput.placeholder = 'Set Name';
+        setNameInput.className = 'set-name-input';
+        newSet.appendChild(setNameInput);
+
+        const photosContainer = document.createElement('div');
+        photosContainer.className = 'photos';
         photoUrls.forEach(url => {
-            newSet.appendChild(createPhotoSlot(url));
+            photosContainer.appendChild(createPhotoSlot(url));
         });
-        photoSetContainer.appendChild(newSet);
+        newSet.appendChild(photosContainer);
+        setsContainer.appendChild(newSet);
     }
 
     // Event listener for photo uploads
